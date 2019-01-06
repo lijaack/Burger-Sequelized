@@ -27,10 +27,16 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Burger = sequelize.define("Burger", {
-      
-      name: DataTypes.STRING
-    });
-  
-  
-    return Burger; };
+      name: {
+        type: DataTypes.STRING,
+        validate: {len: [1]}
+      },
+      devoured: {
+        type:DataTypes.INTEGER,
+        default: 0
+      }
+    }
+    );
+    return Burger; 
+};
   

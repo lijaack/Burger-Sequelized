@@ -6,9 +6,6 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
-// Requiring our models for syncing
-var db = require("./models");
-
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,9 +13,12 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/burgers_controller.js");
+require("./controllers/burgers_controller.js")(app);
 
-app.use(routes);
+
+
+// Requiring our models for syncing
+var db = require("./models");
 
 db.sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
