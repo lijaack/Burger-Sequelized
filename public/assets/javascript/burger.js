@@ -8,8 +8,8 @@ $(document).ready(function() {
         };
     
         // Send the POST request.
-        $.ajax("/api/burgers", {
-          type: "POST",
+        $.post("/api/burgers", {
+        
           data: newBurger
         }).then(
           function() {
