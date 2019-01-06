@@ -32,8 +32,8 @@ module.exports = function(sequelize, DataTypes) {
         validate: {len: [1]}
       },
       devoured: {
-        type:DataTypes.INTEGER,
-        default: 0
+        type: DataTypes.INTEGER,
+        defaultValue: 0
       }
     }
     );

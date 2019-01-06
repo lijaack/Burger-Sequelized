@@ -10,7 +10,7 @@
             {{#each burgers}}
                 {{#unless devoured}}
                 <h5>
-                    {{burger_name}}
+                    {{name}}
                     <button class="devour-burger btn btn-success" data-id="{{id}}" data-devoured="false">
                         Devour!
                     </button>
@@ -22,7 +22,7 @@
             {{#each burgers}}
                 {{#if devoured}}
                 <h5>
-                    {{burger_name}}
+                    {{name}}
                     <button class="delete-burger btn btn-danger" data-id="{{id}}">DELETE!</button>
                 </h5>
                 {{/if}}

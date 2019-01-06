@@ -3,18 +3,28 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/", function(req,res){
-    
       db.Burger.findAll().then(
-        function(hbsobject){
+        function(data){
+          console.log(data)
+          var hbsobject = {
+            burgers: data
+          };
         res.render("index", hbsobject);
       })        
   }); 
-
-  // app.post("/api/burgers", function(req, res) {
-  //     db.burger.create(req.body).then(function(result) {
-  //       res.json({ id: result.insertId });
-  //     });
-  // });
+//   router.get("/", function(req,res){
+//     burger.selectAll(function(data){
+//         var hbsobject = {
+//             burgers: data
+//         };
+//         res.render("index", hbsobject);
+//     }); 
+// });
+  app.post("/api/burgers", function(req, res) {
+      db.Burger.create(req.body).then(function(result) {
+        res.json({ id: result.insertId });
+      });
+  });
 
   // app.put("/api/burgers/:id", function(req, res) {
   //   var condition = "id = " + req.params.id;

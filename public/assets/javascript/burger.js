@@ -1,54 +1,51 @@
 $(document).ready(function() {
 
-    // $(".create-burger").on("submit", function(event) {
-    //     event.preventDefault();
+    $(".create-burger").on("submit", function(event) {
+        event.preventDefault();
 
-    //     var newBurger = {
-    //       name: $("#burger").val().trim(),
-    //     };
+        var newBurger = {
+          name: $("#burger").val().trim(),
+        };
     
-    //     // Send the POST request.
-    //     $.post("/api/burgers", {
-        
-    //       data: newBurger
-    //     }).then(
-    //       function() {
-    //         console.log("created new burger");
-    //         // Reload the page to get the updated list
-    //         location.reload();
-    //       }
-    //     );
-    // });
+        // Send the POST request.
+        $.post("/api/burgers", newBurger).then(
+          function() {
+            console.log("created new burger");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+    });
     
-    // $(".devour-burger").on("click", function(event){
-    //   event.preventDefault();
-    //   console.log("devouring");
-    //   var burgerID = $(this).data("id");
+    $(".devour-burger").on("click", function(event){
+      event.preventDefault();
+      console.log("devouring");
+      var burgerID = $(this).data("id");
 
-    //   $.ajax("/api/burgers/" + burgerID, {
-    //     type: "PUT"
-    //   }).then(
-    //     function(){
-    //       location.reload();
-    //     }
-    //   )
-    // })
+      $.ajax("/api/burgers/" + burgerID, {
+        type: "PUT"
+      }).then(
+        function(){
+          location.reload();
+        }
+      )
+    })
 
-    // $(".delete-burger").on("click", function(event){
-    //   event.preventDefault();
+    $(".delete-burger").on("click", function(event){
+      event.preventDefault();
       
-    //   console.log("deleting");
+      console.log("deleting");
 
-    //   var burgerID = $(this).data("id");
+      var burgerID = $(this).data("id");
 
-    //   $.ajax("/api/burgers/" + burgerID, {
-    //     type: "DELETE"
-    //   }).then(
-    //     function(){
-    //       location.reload();
-    //     }
-    //   )
-    // })
+      $.ajax("/api/burgers/" + burgerID, {
+        type: "DELETE"
+      }).then(
+        function(){
+          location.reload();
+        }
+      )
+    })
 
 
 });

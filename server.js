@@ -16,11 +16,10 @@ app.set("view engine", "handlebars");
 require("./controllers/burgers_controller.js")(app);
 
 
-
 // Requiring our models for syncing
 var db = require("./models");
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });
