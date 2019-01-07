@@ -15,5 +15,4 @@ Simply type in a burger you would like to eat and it will get added to the datab
 * MYSQL
 * sequelized.js
 
-![picture](.png)
-![picture](.png)
+![picture](burger-gif.gif)
