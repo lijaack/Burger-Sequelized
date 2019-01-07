@@ -19,33 +19,31 @@ $(document).ready(function() {
     
     $(".devour-burger").on("click", function(event){
       event.preventDefault();
-      console.log("devouring");
       var burgerID = $(this).data("id");
-
-      $.ajax("/api/burgers/" + burgerID, {
-        type: "PUT"
+      $.ajax({
+       type: "put",
+        url: "/api/burgers/" + burgerID
       }).then(
         function(){
           location.reload();
         }
       )
+     
     })
+
 
     $(".delete-burger").on("click", function(event){
       event.preventDefault();
-      
-      console.log("deleting");
-
+    
       var burgerID = $(this).data("id");
 
-      $.ajax("/api/burgers/" + burgerID, {
-        type: "DELETE"
-      }).then(
-        function(){
-          location.reload();
-        }
-      )
+      $.ajax({
+        type: "delete",
+        url: "/api/burgers/" + burgerID
+      })
+        .then( function(){
+           location.reload();});
+      
     })
-
 
 });
